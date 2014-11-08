@@ -6,18 +6,15 @@ apps.
 
 ### Demo
 
-Try the demo [here][http://nlp-suite.appspot.com/tagger.html].
+Try the demo [here](http://nlp-suite.appspot.com/tagger.html).
 
 ### Use and Examples
 
-Simply place a request to http://nlp-suite.appspot.com/q=_words_ using HTTP GET or POST.
+Simply place a request to http://nlp-suite.appspot.com/api/tagger with the parameter q=_words_ using HTTP GET or POST.
 For example:
 
-	http://nlp-suite.appspot.com/api/tagger?q=I+am+Kevin+Gleason
-	// I/PP am/VBP Kevin/NP Gleason/NP
+    http://nlp-suite.appspot.com/api/tagger?q=I+am+Kevin+Gleason
+    //Request returns: I/PP am/VBP Kevin/NP Gleason/NP
 
 Tags follow the Penn TreeBank standards.
-
-
-
 
