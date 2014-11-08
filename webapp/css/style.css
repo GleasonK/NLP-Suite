@@ -1,0 +1,174 @@
+/*
+#17C5C5 #base
+#E4F4F4 #lightest
+#5ACFCF #lighter
+#009292 #darker
+#005A5A #darkest
+*/
+
+body{
+	background: #17C5C5;
+	padding: 25px;
+	font-family: "Montserrat";
+}
+
+a {
+	color: #005A5A;
+}
+
+h1,h2,h3 {
+	font-family: "Montserrat";
+	padding:0;
+	margin: 0;
+}
+
+h3{
+	padding:0;
+	margin: 0;
+	margin-bottom: 10px;
+}
+
+#page-container{
+	margin: 0 auto;
+	max-width: 1080px;
+	width: 80%;
+}
+
+#outline {
+	background: white;
+	border-radius: 0px 0px 5px 5px;
+}
+
+#header{
+	text-align: center;
+	color: white;
+	border: 3px solid white;
+	border-radius: 5px 5px 0 0;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+	#header h1{
+		padding: 5px;
+
+	}
+
+
+#ask-box{
+	background: white;
+	position: relative;
+}
+
+#input-text{
+	margin: 0px;
+	width: 99%;
+	padding: 5px;
+	padding-left: 10px;
+	font-size: 20px;
+	outline: none;
+	border: none;
+	resize:none;
+	font-family: "Montserrat"
+}
+
+#question-submit{
+	position: absolute;
+	right: 5px;
+	bottom: 5px;
+	height: 50px;
+	box-shadow: 1px 2px 3px;
+	border: 2px solid #17C5C5;
+	border-radius: 50%;
+	color: #17C5C5;
+	font-family: "Montserrat";
+	font-size: 24px;
+	background: white;
+}
+
+	#question-submit:hover{
+		border: 2px solid #5ACFCF;
+		color: #5ACFCF;
+	}
+	#question-submit:active{
+		border: 2px solid #009292;
+		color: #009292;
+	}
+
+#tagged {
+	background: #17C5C5;
+	border: 3px solid white;
+	border-radius: 0px 0px 5px 5px;
+	min-height: 250px;
+	padding: 10px;
+	color: white;
+}
+
+#tagged-sentences{
+	padding-left: 15px;
+	font-size: 18px;
+	color: #005A5A;
+}
+
+td.iter{
+	margin-top: 0;
+	vertical-align: top;
+	width: 25px;
+	margin-right: 5px;
+	padding-left: 10px;
+	font-size: 18px;
+	color: #E4F4F4;
+}
+
+#options {
+	border-radius: 0px 0px 5px 5px;
+	background: white;
+	height: 45px;
+	color: white;
+	position: relative;
+	display: block;
+}
+
+#options-label {
+	float: left;
+	color: #17C5C5;
+	font-family: "Montserrat";
+	padding: 10px;
+	margin-left: 5px;
+	font-size: 18px;
+}
+
+#options button{
+	float: right;
+	margin-right: 5px;
+	right:0;
+	height: 40px;
+	box-shadow: 1px 2px 3px;
+	border: 2px solid #17C5C5;
+	border-radius: 50%;
+	color: #17C5C5;
+	font-family: "Montserrat";
+	font-size: 14px;
+	background: white;
+}
+
+	#options button:hover{
+		border: 2px solid #5ACFCF;
+		color: #5ACFCF;
+	}
+	#options button:active{
+		border: 2px solid #009292;
+		color: #009292;
+	}
+
+.scroll {
+	overflow: auto;
+	max-height: 250px;
+}
+
+#scroll-button {
+	width: 75px;
+}
+
+.scroll-button-off {
+	font-size:12px!important;
+}
+

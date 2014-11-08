@@ -1,0 +1,104 @@
+<!-- 
+
+- Add space at the bottom with a clear button as well as a scroll option. Animate the scroll so if size of div is bigger it will resize. 
+- Catch / as a symbol.
+- Check if capital nouns have lowercase counterparts with some accuracy.
+-->
+
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <title>NLP Suite | Sentence Tagger</title>
+</head>
+<body>
+
+<div id="page-container">
+
+
+    <div id="header">
+        <h1>Sentence Tagger</h1>
+    </div>
+    <div id="outline">
+        <div id="ask-box">
+            <textarea id="input-text" name="inputText" cols="40" rows="5" placeholder="Enter a sentence"></textarea>
+            <button id="question-submit" type="submit" onclick="httpGet()">TAG</button>
+        </div>
+
+
+        <div id="tagged" class="scroll">
+            <h3>Tagged sentences:</h3>
+            <table id="tagged-sentences"></table>
+        </div>
+        <div id="options">
+            <div id="options-label">Options:</div>
+            <button id="clear" type="submit" onclick="clearLogs()">CLEAR</button>
+            <button id = "scroll-button" class = "" onclick="toggleScroll()">SCROLL</button>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<script type="text/javascript">
+	var totalTagged = 0;
+
+	function httpGet()
+	{
+		var txtArea = document.getElementById("input-text");
+		if (txtArea.value != ""){
+			var htmlText = txtArea.value.replace(/ /g,"%20");
+			htmlText = htmlText.replace(/#/g,"");
+		    var xmlHttp = null; 
+		    var url = "http://nlp-suite.appspot.com/api/tagger?q=" + htmlText;
+
+		    xmlHttp = new XMLHttpRequest();
+		    xmlHttp.open("GET", url, false );
+		    xmlHttp.send( null );
+
+		    var tagged = document.getElementById("tagged-sentences");
+		    totalTagged++;
+		    tagged.innerHTML = tagged.innerHTML + writeTableRow(totalTagged, xmlHttp.responseText);
+
+		    var taggedDiv = $("#tagged");
+			taggedDiv.animate({ scrollTop: taggedDiv.prop("scrollHeight") - taggedDiv.height() }, 500);
+
+		    txtArea.value="";
+
+		    return xmlHttp.responseText;
+		}
+	}
+
+	function writeTableRow(i, data){
+		return "<tr><td class='iter'>" + i + "</td><td>" + data + "</td></tr>";
+	}
+
+	function clearLogs(){
+		var txtArea = document.getElementById("input-text");
+		var tagged = document.getElementById("tagged-sentences");
+	    totalTagged = 0;
+	    tagged.innerHTML = "";
+	    txtArea.value="";
+	}
+
+	var scroll = true;
+	function toggleScroll() {
+		var scrollButton = $('#scroll-button');
+		var taggedDiv = $("#tagged");
+
+		if (scroll) {
+			scroll=false;
+			taggedDiv.removeClass("scroll");	
+			scrollButton.addClass("scroll-button-off");
+			document.getElementById("scroll-button").innerHTML = "NO<br/>Scroll";
+		} else {
+			scroll=true;
+			taggedDiv.addClass("scroll");
+			scrollButton.text("SCROLL");
+			scrollButton.removeClass("scroll-button-off");
+		}
+	}
+
+</script>
